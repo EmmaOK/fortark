@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Security Scorecard — Fortark</title>
+  <meta name="description" content="Answer 8 questions about your application and get an instant AI security risk scorecard mapped to OWASP, NIST, and MAESTRO frameworks." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">F</div>
+        Fortark
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="scorecard.html" class="active">Free Scorecard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-ghost">Book a Call</a>
+        <a href="scorecard.html" class="btn btn-primary">Get Scorecard →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Scorecard Wizard ── -->
+  <div class="scorecard-wrapper">
+    <div class="scorecard-box" id="quiz-box">
+
+      <!-- Progress -->
+      <div class="progress-bar-wrap">
+        <div class="progress-meta">
+          <span id="progress-label">Question 1 of 8</span>
+          <span id="progress-pct">12%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width: 12%"></div>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="question-block active" data-q="1">
+        <div class="question-label">AI / LLM Security</div>
+        <div class="question-text">Does your product use LLMs or AI agents?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="agents">
+            <span class="option-key">A</span>Yes — AI agents that take autonomous actions
+          </button>
+          <button class="option-btn" data-value="llm">
+            <span class="option-key">B</span>Yes — LLMs for chat, generation, or analysis
+          </button>
+          <button class="option-btn" data-value="none">
+            <span class="option-key">C</span>No — traditional software only
+          </button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-block" data-q="2">
+        <div class="question-label">AI / LLM Security</div>
+        <div class="question-text">Do you use a vector database or RAG pipeline?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="yes_user">
+            <span class="option-key">A</span>Yes — stores user-provided data
+          </button>
+          <button class="option-btn" data-value="yes_internal">
+            <span class="option-key">B</span>Yes — internal/proprietary data only
+          </button>
+          <button class="option-btn" data-value="no">
+            <span class="option-key">C</span>No
+          </button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-block" data-q="3">
+        <div class="question-label">Cloud Posture</div>
+        <div class="question-text">Where is your application deployed?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="aws_gcp_azure">
+            <span class="option-key">A</span>AWS, GCP, or Azure
+          </button>
+          <button class="option-btn" data-value="other_cloud">
+            <span class="option-key">B</span>Other cloud provider
+          </button>
+          <button class="option-btn" data-value="self_hosted">
+            <span class="option-key">C</span>Self-hosted / on-premise
+          </button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-block" data-q="4">
+        <div class="question-label">Compliance</div>
+        <div class="question-text">Do you have users or customers in the EU?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="yes_primary">
+            <span class="option-key">A</span>Yes — EU is a primary market
+          </button>
+          <button class="option-btn" data-value="yes_some">
+            <span class="option-key">B</span>Yes — some EU users
+          </button>
+          <button class="option-btn" data-value="no">
+            <span class="option-key">C</span>No
+          </button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-block" data-q="5">
+        <div class="question-label">Compliance</div>
+        <div class="question-text">What compliance frameworks does your business need?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="none">
+            <span class="option-key">A</span>None identified yet
+          </button>
+          <button class="option-btn" data-value="working">
+            <span class="option-key">B</span>Working towards SOC 2 / ISO 27001
+          </button>
+          <button class="option-btn" data-value="certified">
+            <span class="option-key">C</span>Already certified (SOC 2, ISO 27001, HIPAA)
+          </button>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question-block" data-q="6">
+        <div class="question-label">AI / LLM Security</div>
+        <div class="question-text">Do your AI agents perform high-stakes autonomous actions?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="high_stakes">
+            <span class="option-key">A</span>Yes — financial transactions, data deletion, system changes
+          </button>
+          <button class="option-btn" data-value="low_stakes">
+            <span class="option-key">B</span>Yes — low-stakes actions (drafts, searches, notifications)
+          </button>
+          <button class="option-btn" data-value="no">
+            <span class="option-key">C</span>No autonomous actions
+          </button>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question-block" data-q="7">
+        <div class="question-label">Security Posture</div>
+        <div class="question-text">Has your application had a security review in the past 12 months?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="no">
+            <span class="option-key">A</span>No — never had a review
+          </button>
+          <button class="option-btn" data-value="partial">
+            <span class="option-key">B</span>Partial — only some components reviewed
+          </button>
+          <button class="option-btn" data-value="yes">
+            <span class="option-key">C</span>Yes — full security assessment
+          </button>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="question-block" data-q="8">
+        <div class="question-label">Authentication</div>
+        <div class="question-text">How do you handle user authentication?</div>
+        <div class="options-list">
+          <button class="option-btn" data-value="none">
+            <span class="option-key">A</span>No authentication yet
+          </button>
+          <button class="option-btn" data-value="basic">
+            <span class="option-key">B</span>Basic username / password
+          </button>
+          <button class="option-btn" data-value="mfa">
+            <span class="option-key">C</span>MFA or SSO
+          </button>
+        </div>
+      </div>
+
+      <!-- Nav Buttons -->
+      <div class="question-nav" id="quiz-nav">
+        <button class="btn-nav btn-prev" id="btn-prev" style="visibility: hidden;">← Back</button>
+        <button class="btn-nav btn-next" id="btn-next" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- ── Results ── -->
+    <div class="scorecard-box" id="results-section">
+      <div class="results-header">
+        <div class="overall-score" id="overall-score-circle">
+          <span class="score-num" id="overall-score-num">--</span>
+          <span class="score-label">Risk</span>
+        </div>
+        <h2 id="results-headline">Your Security Risk Profile</h2>
+        <p id="results-summary" class="text-muted"></p>
+      </div>
+
+      <div class="domain-scores" id="domain-scores"></div>
+
+      <div class="results-findings">
+        <h3>Key Findings</h3>
+        <div id="findings-list"></div>
+      </div>
+
+      <div class="results-cta">
+        <p>A full audit will surface the specific vulnerabilities behind these scores with a concrete remediation plan.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Book a Free 30-Min Call →</a>
+        <p style="margin-top: 12px; font-size: 12px; color: var(--text-3);">No commitment required</p>
+      </div>
+
+      <button class="btn btn-ghost" id="retake-btn" style="margin-top: 16px; width: 100%; justify-content: center;">
+        ← Retake Scorecard
+      </button>
+    </div>
+  </div>
+
+  <script src="js/scorecard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

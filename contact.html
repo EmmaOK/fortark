@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Fortark</title>
+  <meta name="description" content="Book a free 30-minute security consultation with Fortark. Tell us about your application and we'll get back to you within 24 hours." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">F</div>
+        Fortark
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="scorecard.html">Free Scorecard</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-ghost">Book a Call</a>
+        <a href="scorecard.html" class="btn btn-primary">Get Scorecard →</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="badge badge-accent" style="margin-bottom: 20px;">Contact</div>
+      <h1>Let's talk about<br /><span class="text-accent">your security</span></h1>
+      <p>Book a free 30-minute call. No pitch — just an honest conversation about your application's risk profile.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>We respond within 24 hours.</h2>
+          <p>Tell us about your application, your stack, and what's keeping you up at night. We'll come prepared with context specific to your situation.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">✉</div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <span>hello@fortark.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📅</div>
+              <div class="contact-item-text">
+                <strong>Response time</strong>
+                <span>Within 24 hours on business days</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌍</div>
+              <div class="contact-item-text">
+                <strong>Timezone</strong>
+                <span>Available across US, EU, and UK time zones</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; padding: 24px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-md);">
+            <p style="font-size: 13px; color: var(--text-2); margin-bottom: 12px;">Not ready to talk yet?</p>
+            <a href="scorecard.html" class="btn btn-outline" style="width: 100%; justify-content: center;">
+              Get Your Free Scorecard First →
+            </a>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Alex Johnson" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Work Email *</label>
+                <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Product Name</label>
+              <input type="text" id="company" name="company" placeholder="Your startup or product" />
+            </div>
+            <div class="form-group">
+              <label for="service">What are you interested in? *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="starter">Starter Audit — $4,999</option>
+                <option value="full">Full Audit — From $19,999</option>
+                <option value="monitoring">Monthly Monitoring — $499/mo</option>
+                <option value="call">Free 30-min consultation first</option>
+                <option value="other">Other / Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell us about your application</label>
+              <textarea id="message" name="message" placeholder="What does your product do? What tech stack are you using? What security concerns do you have?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg form-submit">
+              Send Message →
+            </button>
+            <p class="form-note">We'll respond within 24 hours. Your information is never shared.</p>
+          </form>
+
+          <!-- Success state (hidden by default) -->
+          <div id="form-success" class="hidden" style="text-align: center; padding: 40px 0;">
+            <div style="font-size: 48px; margin-bottom: 20px;">✓</div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px;">Message received.</h3>
+            <p style="color: var(--text-2); margin-bottom: 24px;">We'll be in touch within 24 hours. In the meantime, grab your free scorecard if you haven't already.</p>
+            <a href="scorecard.html" class="btn btn-primary">Get Free Scorecard →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">F</div>
+            Fortark
+          </a>
+          <p>AI-native security audits for software companies. Find threats before attackers do.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="scorecard.html">Free Scorecard</a></li>
+            <li><a href="services.html">Starter Audit</a></li>
+            <li><a href="services.html">Full Audit</a></li>
+            <li><a href="services.html">Monthly Monitoring</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="#">OWASP LLM Top 10</a></li>
+            <li><a href="#">MAESTRO</a></li>
+            <li><a href="#">NIST CSF 2.0</a></li>
+            <li><a href="#">EU AI Act</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Fortark. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const res = await fetch('/', { method: 'POST', body: data });
+        if (res.ok) { form.classList.add('hidden'); success.classList.remove('hidden'); }
+      });
+    }
+  </script>
+</body>
+</html>
