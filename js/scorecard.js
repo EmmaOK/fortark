@@ -129,14 +129,19 @@ function scoreAI() {
 }
 
 function scoreCloud() {
-  let score = 100;
+  // Start at 70 — hosting platform alone doesn't confirm secure configuration.
+  // IAM posture, bucket policies, network exposure, and WAF are all unknown.
+  let score = 70;
   const q3  = answers[3]  ?? 'aws_gcp_azure';
   const q9  = answers[9]  ?? 'internal';
   const q10 = answers[10] ?? 'secrets_manager';
-  if (q3 === 'self_hosted')         score -= 30;
-  else if (q3 === 'other_cloud')    score -= 15;
-  if (q9 === 'public')              score -= 25;
+  // Hosting: self-hosted means fully manual hardening responsibility
+  if (q3 === 'self_hosted')         score -= 15;
+  else if (q3 === 'other_cloud')    score -= 5;
+  // API exposure: public APIs significantly expand attack surface
+  if (q9 === 'public')              score -= 30;
   else if (q9 === 'partner')        score -= 10;
+  // Secrets management: hardcoded is critical regardless of hosting
   if (q10 === 'hardcoded')          score -= 50;
   else if (q10 === 'env_vars')      score -= 20;
   return Math.max(0, score);
