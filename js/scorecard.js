@@ -197,8 +197,13 @@ function generateFindings() {
     findings.push({ severity: 'HIGH', text: 'Self-hosted infrastructure requires manual security hardening — network segmentation, patch management, and CIS Benchmark compliance must be verified', dot: '#ffb300' });
 
   // MEDIUM findings (yellow)
-  if (answers[4] === 'yes_primary' || answers[4] === 'yes_some')
-    findings.push({ severity: 'MEDIUM', text: 'EU market presence triggers EU AI Act obligations — high-risk AI systems require conformity assessment before deployment; non-compliance carries fines up to €30M or 6% global turnover', dot: '#ffb300' });
+  if (answers[4] === 'yes_primary' || answers[4] === 'yes_some') {
+    if (answers[1] !== 'none') {
+      findings.push({ severity: 'MEDIUM', text: 'EU market presence triggers EU AI Act obligations — high-risk AI systems require conformity assessment before deployment; non-compliance carries fines up to €30M or 6% global turnover', dot: '#ffb300' });
+    } else {
+      findings.push({ severity: 'MEDIUM', text: 'EU market presence requires GDPR compliance — data processing agreements, privacy notices, and lawful basis for processing must be in place', dot: '#ffb300' });
+    }
+  }
   if (answers[5] === 'none')
     findings.push({ severity: 'MEDIUM', text: 'No compliance framework identified — enterprise and regulated buyers increasingly require SOC 2 or ISO 27001 as a procurement condition', dot: '#ffb300' });
   if (answers[10] === 'env_vars')
@@ -215,7 +220,7 @@ function generateFindings() {
 
 // ── Recommendation ──────────────────────────────────────────
 function generateRecommendation(scores, overall) {
-  const { ai, cloud, auth, compliance } = scores;
+  const { cloud, auth, compliance } = scores;
   const hasAI  = answers[1] !== 'none' && answers[1] !== undefined;
   const hasEU  = answers[4] === 'yes_primary' || answers[4] === 'yes_some';
   const hasRAG = answers[2] === 'yes_user' || answers[2] === 'yes_internal';
@@ -258,12 +263,28 @@ function generateRecommendation(scores, overall) {
 
 // ── Show Results ────────────────────────────────────────────
 function showResults() {
-  const ai         = scoreAI();
+  const hasAI = answers[1] !== 'none';
   const cloud      = scoreCloud();
   const auth       = scoreAuth();
   const compliance = scoreCompliance();
-  const overall    = Math.round((ai + cloud + auth + compliance) / 4);
-  const scores     = { ai, cloud, auth, compliance };
+  const scores     = { cloud, auth, compliance };
+
+  // Only include AI domain if product actually uses AI
+  const domains = [];
+  if (hasAI) {
+    const ai = scoreAI();
+    scores.ai = ai;
+    domains.push({ name: 'AI / LLM Security', score: ai });
+  }
+  domains.push(
+    { name: 'Cloud & API Posture', score: cloud },
+    { name: 'Authentication',     score: auth },
+    { name: 'Compliance',         score: compliance },
+  );
+
+  const overall = Math.round(
+    domains.reduce((sum, d) => sum + d.score, 0) / domains.length
+  );
 
   const overallRisk = riskLevel(overall);
 
@@ -283,12 +304,6 @@ function showResults() {
     `A full Fortark audit will surface the specific vulnerabilities behind these scores.`;
 
   // Domain bars
-  const domains = [
-    { name: 'AI / LLM Security', score: ai },
-    { name: 'Cloud & API Posture', score: cloud },
-    { name: 'Authentication',     score: auth },
-    { name: 'Compliance',         score: compliance },
-  ];
   const domainContainer = document.getElementById('domain-scores');
   domainContainer.innerHTML = '';
   domains.forEach(d => {
