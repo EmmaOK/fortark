@@ -1002,6 +1002,31 @@ footer {
   border-color: var(--accent);
 }
 
+/* ── Checkbox grid (threat model form) ─────────────────────── */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-0);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-2);
+  transition: border-color 0.15s, color 0.15s;
+}
+.checkbox-item:hover { border-color: var(--accent); color: var(--text-1); }
+.checkbox-item input[type="checkbox"] { margin-top: 1px; accent-color: var(--accent); flex-shrink: 0; }
+.checkbox-item:has(input:checked) { border-color: var(--accent); color: var(--text-1); background: var(--accent-dim); }
+@media (max-width: 600px) { .checkbox-grid { grid-template-columns: 1fr; } }
+
 /* ── Contact ───────────────────────────────────────────────── */
 .contact-grid {
   display: grid;

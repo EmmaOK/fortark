@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free AI Threat Model — Fortark</title>
+  <meta name="description" content="Tell us about your architecture. We'll map every applicable threat to OWASP, MAESTRO, and MITRE ATT&CK and deliver a free threat model to your inbox within 24 hours." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">F</div>
+        Fortark
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="scorecard.html">Free Scorecard</a>
+        <a href="threatmodel.html" class="active">Free Threat Model</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://calendly.com/fortarksec/30min" target="_blank" rel="noopener" class="btn btn-ghost">Book a Call</a>
+        <a href="scorecard.html" class="btn btn-primary">Get Scorecard →</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <div class="badge badge-accent" style="margin-bottom: 20px;">Free · Delivered in 24 hours</div>
+      <h1>Free AI<br /><span class="text-accent">Threat Model</span></h1>
+      <p>Tell us about your architecture. We'll map every applicable threat to OWASP LLM Top 10, MAESTRO, and MITRE ATT&CK and deliver the report to your inbox within 24 hours — no commitment, no credit card.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: what you get -->
+        <div class="contact-info">
+          <h2>What you'll receive</h2>
+          <p>A structured threat model specific to your product's architecture — not a generic checklist.</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">🎯</div>
+              <div class="contact-item-text">
+                <strong>Architecture-specific threats</strong>
+                <span>Every threat mapped to your actual components — LLM endpoints, RAG pipelines, agent frameworks, MCP servers</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📋</div>
+              <div class="contact-item-text">
+                <strong>Framework references</strong>
+                <span>Each threat mapped to OWASP LLM Top 10, OWASP Agentic Top 10, MAESTRO layers, and MITRE ATT&CK techniques</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">⚡</div>
+              <div class="contact-item-text">
+                <strong>Prioritised by severity</strong>
+                <span>Critical, High, Medium, and Low findings with concrete mitigation guidance for each</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📅</div>
+              <div class="contact-item-text">
+                <strong>Delivered within 24 hours</strong>
+                <span>To your inbox on business days — no account, no portal</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; padding: 24px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-md);">
+            <p style="font-size: 13px; color: var(--text-2); margin-bottom: 4px;">Not sure what you have yet?</p>
+            <p style="font-size: 13px; color: var(--text-3); margin-bottom: 16px;">Start with the scorecard first — it takes 60 seconds and gives you a baseline risk score.</p>
+            <a href="scorecard.html" class="btn btn-outline" style="width: 100%; justify-content: center;">
+              Get Free Scorecard First →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="form-card">
+          <form id="threat-model-form" name="threat-model-requests" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="threat-model-requests" />
+            <input type="hidden" name="bot-field" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tm-name">Full Name *</label>
+                <input type="text" id="tm-name" name="name" placeholder="Alex Johnson" required />
+              </div>
+              <div class="form-group">
+                <label for="tm-email">Work Email *</label>
+                <input type="email" id="tm-email" name="email" placeholder="alex@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tm-company">Company / Product Name *</label>
+                <input type="text" id="tm-company" name="company" placeholder="Acme AI" required />
+              </div>
+              <div class="form-group">
+                <label for="tm-url">Product URL</label>
+                <input type="url" id="tm-url" name="url" placeholder="https://app.acme.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tm-arch">What type of AI system are you building? *</label>
+              <select id="tm-arch" name="arch_type" required>
+                <option value="" disabled selected>Select architecture type</option>
+                <option value="llm_app">LLM application — chat, generation, or analysis</option>
+                <option value="rag">RAG pipeline — retrieval-augmented generation</option>
+                <option value="agentic">AI agents — autonomous task execution</option>
+                <option value="multi_agent">Multi-agent system</option>
+                <option value="training_pipeline">AI training or fine-tuning pipeline</option>
+                <option value="web_app">Traditional web application — no AI</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Which components does your system include? (select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="llm_endpoint" />
+                  <span>LLM endpoint (OpenAI, Anthropic, etc.)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="rag_store" />
+                  <span>Vector database / RAG store</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="agent_tools" />
+                  <span>AI agent with tool use</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="mcp_server" />
+                  <span>MCP server / external tool integration</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="system_prompt" />
+                  <span>System prompt / persona</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="user_input" />
+                  <span>User-facing chat interface</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="api_gateway" />
+                  <span>Public-facing API</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="components" value="training_pipeline" />
+                  <span>Training / fine-tuning pipeline</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tm-cloud">Where is your application deployed? *</label>
+              <select id="tm-cloud" name="cloud_provider" required>
+                <option value="" disabled selected>Select deployment</option>
+                <option value="aws">AWS</option>
+                <option value="gcp">Google Cloud (GCP)</option>
+                <option value="azure">Microsoft Azure</option>
+                <option value="multi_cloud">Multi-cloud</option>
+                <option value="self_hosted">Self-hosted / on-premise</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tm-concerns">What are you most concerned about? <span style="color:var(--text-3);font-weight:400;">(optional)</span></label>
+              <textarea id="tm-concerns" name="concerns" placeholder="e.g. prompt injection via user inputs, data leakage from our RAG pipeline, EU AI Act compliance..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg form-submit">
+              Request Free Threat Model →
+            </button>
+            <p class="form-note">Delivered to your inbox within 24 hours on business days. Your information is never shared.</p>
+          </form>
+
+          <!-- Success state -->
+          <div id="tm-success" class="hidden" style="text-align: center; padding: 48px 0;">
+            <div style="font-size: 48px; margin-bottom: 20px;">✓</div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px;">Request received.</h3>
+            <p style="color: var(--text-2); margin-bottom: 8px;">Your threat model will be in your inbox within 24 hours.</p>
+            <p style="color: var(--text-3); font-size: 13px; margin-bottom: 28px;">While you wait, the free scorecard gives you an instant risk score across four security domains.</p>
+            <a href="scorecard.html" class="btn btn-outline">Get Free Scorecard →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What's covered -->
+  <section class="section" style="background: var(--bg-1);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Frameworks Covered</span>
+        <h2 class="section-title">Every threat mapped to real standards</h2>
+        <p class="section-sub">The threat model isn't opinions — it maps your architecture to the frameworks your team and investors already recognise.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div class="card">
+          <div class="badge badge-accent" style="margin-bottom: 16px;">AI Security</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">OWASP LLM Top 10</h3>
+          <p style="font-size: 13px; color: var(--text-2);">Prompt injection, insecure output handling, data poisoning, excessive agency, and 6 more LLM-specific threats.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-accent" style="margin-bottom: 16px;">AI Security</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">OWASP Agentic Top 10</h3>
+          <p style="font-size: 13px; color: var(--text-2);">Goal hijacking, tool misuse, cascading failures, memory poisoning, and agentic-specific attack patterns.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-accent" style="margin-bottom: 16px;">AI Security</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">MAESTRO Framework</h3>
+          <p style="font-size: 13px; color: var(--text-2);">7-layer threat taxonomy covering foundation models, data operations, agent frameworks, infrastructure, and ecosystem threats.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-cyan" style="margin-bottom: 16px;">Web Security</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">OWASP Web App Top 10</h3>
+          <p style="font-size: 13px; color: var(--text-2);">Injection, broken access control, security misconfiguration, and the full traditional web application threat set.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-cyan" style="margin-bottom: 16px;">Threat Intel</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">MITRE ATT&CK</h3>
+          <p style="font-size: 13px; color: var(--text-2);">Every finding mapped to real-world adversary techniques — so you understand not just what is at risk but how attackers exploit it.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-cyan" style="margin-bottom: 16px;">AI Security</div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">MITRE ATLAS</h3>
+          <p style="font-size: 13px; color: var(--text-2);">AI-specific adversarial tactics and techniques — model evasion, data poisoning attacks, and ML supply chain threats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">F</div>
+            Fortark
+          </a>
+          <p>AI-native security audits for software companies. Find threats before attackers do.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="scorecard.html">Free Scorecard</a></li>
+            <li><a href="threatmodel.html">Free Threat Model</a></li>
+            <li><a href="services.html">Starter Audit</a></li>
+            <li><a href="services.html">Full Audit</a></li>
+            <li><a href="services.html">Monthly Monitoring</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="#">OWASP LLM Top 10</a></li>
+            <li><a href="#">MAESTRO</a></li>
+            <li><a href="#">NIST CSF 2.0</a></li>
+            <li><a href="#">EU AI Act</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Fortark. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const form = document.getElementById('threat-model-form');
+    const success = document.getElementById('tm-success');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const res = await fetch('/', { method: 'POST', body: data });
+        if (res.ok) { form.classList.add('hidden'); success.classList.remove('hidden'); }
+      });
+    }
+  </script>
+</body>
+</html>
