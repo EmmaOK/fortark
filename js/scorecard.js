@@ -343,7 +343,7 @@ function showResults() {
   document.getElementById('recommendation-reason').textContent = rec.reason;
 
   // Pre-populate hidden fields for email capture
-  document.getElementById('hidden-scores').value = JSON.stringify({ overall, ai, cloud, auth, compliance });
+  document.getElementById('hidden-scores').value = JSON.stringify({ overall, ...scores });
   document.getElementById('hidden-findings').value = findings.map(f => f.text).join(' | ');
 
   // Swap views
