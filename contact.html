@@ -6,6 +6,7 @@
   <title>Contact — Fortark</title>
   <meta name="description" content="Book a free 30-minute security consultation with Fortark. Tell us about your application and we'll get back to you within 24 hours." />
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -22,7 +23,7 @@
         <a href="contact.html" class="active">Contact</a>
       </div>
       <div class="nav-cta">
-        <a href="contact.html" class="btn btn-ghost">Book a Call</a>
+        <a href="https://calendly.com/fortarksec/30min" target="_blank" rel="noopener" class="btn btn-ghost">Book a Call</a>
         <a href="scorecard.html" class="btn btn-primary">Get Scorecard →</a>
       </div>
     </div>
@@ -37,11 +38,24 @@
     </div>
   </section>
 
+  <!-- Book a Call -->
   <section class="section">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <span class="section-label">Book a Call</span>
+        <h2 class="section-title">Pick a time that works for you</h2>
+        <p class="section-sub">Free 30-minute consultation. No pitch — just an honest conversation about your application's risk profile.</p>
+      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/fortarksec/30min?hide_gdpr_banner=1" style="min-width:320px;height:700px;border-radius:var(--radius-md);overflow:hidden;"></div>
+    </div>
+  </section>
+
+  <!-- Or send a message -->
+  <section class="section" style="background: var(--bg-1);">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
-          <h2>We respond within 24 hours.</h2>
+          <h2>Prefer to write first?</h2>
           <p>Tell us about your application, your stack, and what's keeping you up at night. We'll come prepared with context specific to your situation.</p>
           <div class="contact-items">
             <div class="contact-item">
@@ -172,6 +186,7 @@
     </div>
   </footer>
 
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <script src="js/main.js"></script>
   <script>
     const form = document.getElementById('contact-form');
